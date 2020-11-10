@@ -5,13 +5,33 @@ import { SiteLayoutComponent } from './layout/site-layout/site-layout.component'
 
 const routes: Routes = [
   {
-    path: 'dashboard',
+    path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: SiteLayoutComponent,
     children: [
       {
         path: 'dashboard',
         loadChildren: () =>
           import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'search',
+        loadChildren: () =>
+          import('./modules/search/search.module').then(m => m.SearchModule)
+      },
+      {
+        path: 'bio',
+        loadChildren: () =>
+          import('./modules/bio/bio.module').then(m => m.BioModule)
+      },
+      {
+        path: 'opportunities',
+        loadChildren: () =>
+          import('./modules/opportunities/opportunities.module').then(m => m.OpportunitiesModule)
       },
     ]
   },
