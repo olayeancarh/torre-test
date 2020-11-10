@@ -10,8 +10,8 @@ export class ApiServiceService {
 
   constructor(private http: HttpClient) { }
 
-  // tslint:disable-next-line: typedef
-  apiGet(url: string, params?: object) {
+
+  apiGet(url: string, params?: object): any {
     let httpParams = new HttpParams();
     Object.keys(params).forEach(k => {
       httpParams = httpParams.set(k, params[k]);
@@ -22,18 +22,16 @@ export class ApiServiceService {
     return this.http.get<any>(url, httpOptions);
   }
 
-  // tslint:disable-next-line: typedef
-  apiPost(url: string, data: any) {
+
+  apiPost(url: string, data: any): any {
     return this.http.post<any>(url, data);
   }
 
-  // tslint:disable-next-line: typedef
-  getUserBio(username: string) {
-    return this.apiGet(`https://torre.bio/api/bios/${username}`);
+  getUserBio(username: string): any {
+    return this.apiGet(`https://torre.bio/api/bios/${username}`, {});
   }
 
-  // tslint:disable-next-line: typedef
-  getOpportunities(id: any) {
-    return this.apiGet(`https://torre.co/api/opportunities/${id}`);
+  getOpportunities(id: any): any {
+    return this.apiGet(`https://torre.co/api/opportunities/${id}`, {});
   }
 }

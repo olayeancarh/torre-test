@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared/shared.module';
 import { SiteLayoutComponent } from './layout/site-layout/site-layout.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
     AppRoutingModule,
 
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

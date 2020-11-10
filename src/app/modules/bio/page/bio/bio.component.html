@@ -1,0 +1,57 @@
+<section class="jumbotron text-center pt-5">
+  <div class="container">
+    <h1 class="jumbotron-heading">Torre Test App</h1>
+    <p class="lead text-muted">Click on links below to check out my bio, check available opportunities or search for
+      jobs or people</p>
+
+    <div>
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <div class="input-group mb-3">
+            <input #vals type="text" class="form-control" placeholder="Enter Username" aria-label="Username"
+              aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button (click)="getUserDetails(vals.value)" class="btn btn-outline-info" type="button">Search</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-4"></div>
+      </div>
+      <div class="row font-weight-bolder" *ngIf="userDetails.message">
+        <div class="col-12">
+          <p>{{ userDetails.message }}</p>
+        </div>
+      </div>
+      <div  *ngIf="userDetails && userDetails.person"  class="row">
+        <div class="col">
+          <ul class="list-group">
+            <li class="list-group-item active">User Details</li>
+            <li class="list-group-item"><b>Name:</b> {{person.name}}</li>
+            <li class="list-group-item"><b>Phone:</b> {{person.phone}}</li>
+            <li class="list-group-item"><b>Headline:</b> {{person.professionalHeadline}}</li>
+            <li class="list-group-item"><b>Location:</b> {{person.location.name}}</li>
+          </ul>
+        </div>
+        <div class="col">
+          <ul class="list-group">
+            <li class="list-group-item active">Interests</li>
+            <li class="list-group-item" *ngFor="let ints of interests, let i = index"><b>Interest {{ i+1 }}: </b>{{ ints.name }}</li>
+          </ul>
+        </div>
+        <div class="col">
+          <ul class="list-group">
+            <li class="list-group-item active">Opportunities</li>
+            <li class="list-group-item" *ngFor="let opps of opportunities">
+              <ul class="list-group">
+                <li class="list-group-item active"><b>Opportunity ID:</b> {{ opps.id }}</li>
+                <li class="list-group-item" *ngFor="let opps2 of opps.data">{{opps2.name}}</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
