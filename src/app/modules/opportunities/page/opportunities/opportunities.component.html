@@ -1,0 +1,42 @@
+<section class="jumbotron text-center pt-5">
+  <div class="container">
+    <h1 class="jumbotron-heading">Torre Test App</h1>
+    <p class="lead text-muted">Click on links below to check out my bio, check available opportunities or search for
+      jobs or people</p>
+
+    <div>
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <div class="input-group mb-3">
+            <input #vals type="text" class="form-control" placeholder="Enter Opportunity ID and Click Search" aria-label="Opportunity ID"
+              aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button (click)="getJobDetails(vals.value)" class="btn btn-outline-info" type="button">Search</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-4"></div>
+      </div>
+      <div class="row font-weight-bolder" *ngIf="opportunities && opportunities == 'Opportunity not found'">
+        <div class="col-12">
+          <p>{{ opportunities }}, Input correct ID and try again.</p>
+        </div>
+      </div>
+      <div  *ngIf="opportunities && opportunities != 'Opportunity not found'"  class="row">
+        <div class="col">
+          <ul class="list-group">
+            <li class="list-group-item active">Opportunities</li>
+            <li class="list-group-item" *ngFor="let opps of opportunities">
+              <ul class="list-group">
+                <li class="list-group-item active"><b>Opportunity ID:</b> {{ opps.id }}</li>
+                <li class="list-group-item" *ngFor="let opps2 of opps.data">{{opps2.name}}</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
