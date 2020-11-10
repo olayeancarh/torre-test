@@ -1,1 +1,14 @@
-<p>dashboard works!</p>
+<section class="jumbotron text-center pt-5">
+  <div class="container">
+    <h1 class="jumbotron-heading">Torre Test App</h1>
+    <p class="lead text-muted">Click on links below to check out my bio, check available opportunities or search for
+      jobs or people</p>
+
+    <div>
+      <p><a [routerLink]="['/bio']" class="btn btn-info my-2 span2">My Bio</a></p>
+      <p><a [routerLink]="['/search']" class="btn btn-info my-2 span2">Search</a></p>
+      <p><a [routerLink]="['/opportunities']" class="btn btn-info my-2 span2">Opportunities</a></p>
+    </div>
+
+  </div>
+</section>
