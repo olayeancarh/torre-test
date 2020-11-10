@@ -18,7 +18,7 @@
         </div>
         <div class="col-4"></div>
       </div>
-      <div class="row font-weight-bolder" *ngIf="userDetails.message">
+      <div class="row font-weight-bolder" *ngIf="userDetails && userDetails.message">
         <div class="col-12">
           <p>{{ userDetails.message }}</p>
         </div>
