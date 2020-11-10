@@ -5,7 +5,7 @@ import { SiteLayoutComponent } from './layout/site-layout/site-layout.component'
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     component: SiteLayoutComponent,
     children: [
       {
